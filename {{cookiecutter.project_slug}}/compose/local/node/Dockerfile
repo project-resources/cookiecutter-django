@@ -1,4 +1,4 @@
-FROM node:10-stretch-slim
+FROM docker.io/node:24.11-bookworm-slim
 
 WORKDIR /app
 
@@ -6,4 +6,4 @@ COPY ./package.json /app
 
 RUN npm install && npm cache clean --force
 
-ENV PATH ./node_modules/.bin/:$PATH
+ENV PATH=./node_modules/.bin/:$PATH

@@ -7,10 +7,7 @@
 #
 # All configuration values have a default; values that are commented out
 # serve to show the default.
-
 from datetime import datetime
-import os
-import sys
 
 now = datetime.now()
 
@@ -26,13 +23,16 @@ now = datetime.now()
 
 # Add any Sphinx extension module names here, as strings. They can be extensions
 # coming with Sphinx (named 'sphinx.ext.*') or your custom ones.
-extensions = []
+extensions = ["myst_parser"]
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ["_templates"]
 
 # The suffix of source filenames.
-source_suffix = ".rst"
+source_suffix = {
+    ".rst": "restructuredtext",
+    ".md": "markdown",
+}
 
 # The encoding of source files.
 # source_encoding = 'utf-8-sig'
@@ -42,7 +42,7 @@ master_doc = "index"
 
 # General information about the project.
 project = "Cookiecutter Django"
-copyright = "2013-{}, Daniel Roy Greenfeld".format(now.year)
+copyright = f"2013-{now.year}, Daniel Roy Greenfeld"
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -92,7 +92,7 @@ pygments_style = "sphinx"
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
-html_theme = "default"
+html_theme = "sphinx_rtd_theme"
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
@@ -188,7 +188,7 @@ latex_documents = [
         "cookiecutter-django Documentation",
         "cookiecutter-django",
         "manual",
-    )
+    ),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of
@@ -223,7 +223,7 @@ man_pages = [
         "Cookiecutter Django documentation",
         ["Daniel Roy Greenfeld"],
         1,
-    )
+    ),
 ]
 
 # If true, show URL addresses after external links.

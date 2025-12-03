@@ -1,4 +1,8 @@
-FROM garland/aws-cli-docker:1.15.47
+FROM docker.io/amazon/aws-cli:2.32.3
+
+# Clear entrypoint from the base image, otherwise it's always calling the aws CLI
+ENTRYPOINT []
+CMD ["/bin/bash"]
 
 COPY ./compose/production/aws/maintenance /usr/local/bin/maintenance
 COPY ./compose/production/postgres/maintenance/_sourced /usr/local/bin/maintenance/_sourced

@@ -3,7 +3,7 @@
 ### Upload the /backups folder to Amazon S3
 ###
 ### Usage:
-###     $ docker-compose -f production.yml run --rm awscli upload
+###     $ docker compose -f docker-compose.production.yml run --rm awscli upload
 
 set -o errexit
 set -o pipefail
@@ -27,4 +27,3 @@ message_info "Cleaning the directory ${BACKUP_DIR_PATH}"
 rm -rf ${BACKUP_DIR_PATH}/*
 
 message_success "Finished uploading and cleaning."
-
